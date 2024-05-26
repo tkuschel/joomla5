@@ -1,0 +1,3 @@
+# ignore all php_error logs
+php_errors.log
+/tmp
