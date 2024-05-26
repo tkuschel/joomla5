@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" method="upgrade">
+	<name>Depot</name>
+	<author>KW4NZ</author>
+	<creationDate>2024-05-26</creationDate>
+	<copyright>(C) KW4NZ Thomas Kuschel</copyright>
+	<license>GPL v2 +; see LICENSE.md</license>
+	<authorEmail>thomas@kuschel.at</authorEmail>
+	<authorUrl>https://kuschel.at</authorUrl>
+	<version>0.9.20</version>
+	<description>COM_DEPOT_XML_DESCRIPTION</description>
+	<namespace path="src/">KW4NZ\Component\Depot</namespace>
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<files folder="site">
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	<!--
+		<file>CODING_STANDARDS.md</file>
+		<file>LICENSE.md</file>
+		<file>README.md</file>
+
+		<folder>forms</folder>
+		<folder>language</folder>
+	-->
+	</files>
+	<administration>
+		<!--
+			Note that all & must be escaped to &amp; for the file to be valid
+			XML and be parsed by the installer
+		-->
+		<menu img="class:barcode">COM_DEPOT_MENU</menu>
+		<submenu>
+			<menu link="option=com_depot" view="parts" img="class:depot" alt="Depot/Parts">
+				COM_DEPOT_MENU
+			</menu>
+			<menu link="option=com_depot&amp;view=stocks" view="stocks" img="class:depot-stock" alt="Depot/Stocks">
+				COM_DEPOT_MENU_STOCKS
+			</menu>
+			<menu link="option=com_depot&amp;view=manufacturers" view="manufacturers" img="class:depot-manufacturer" alt="Depot/Manufacturers">
+				COM_DEPOT_MENU_MANUFACTURERS
+			</menu>
+			<menu link="option=com_depot&amp;view=packages" view="packages" img="class:depot-package" alt="Depot/Packages">
+				COM_DEPOT_MENU_PACKAGES
+			</menu>
+		</submenu>
+		<files folder="admin">
+			<folder>forms</folder>
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/com_depot.ini</language>
+			<language tag="en-GB">en-GB/com_depot.sys.ini</language>
+			<language tag="de-DE">de-DE/com_depot.ini</language>
+			<language tag="de-DE">de-DE/com_depot.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

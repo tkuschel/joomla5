@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldprefix="Joomla\Component\Depot\Administrator\Field">
+	<fields name="filter">
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="COM_DEPOT_FILTER_SEARCH_STOCKS_LABEL"
+			description="COM_DEPOT_FILTER_SEARCH_STOCKS_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+		<field
+			name="published"
+			type="status"
+			label="JSTATUS"
+			class="js-select-submit-on-change"
+			>
+			<option value="">JOPTION_SELECT_PUBLISHED</option>
+		</field>
+	</fields>
+	<fields name="list">
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			statuses="*,0,1,2,-2"
+			class="js-select-submit-on-change"
+			default=""
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="s.ordering ASC">JGRID_HEADING_ORDERING_ASC</option>
+			<option value="s.ordering DESC">JGRID_HEADING_ORDERING_DESC</option>
+			<option value="s.state ASC">JSTATUS_ASC</option>
+			<option value="s.state DESC">JSTATUS_DESC</option>
+			<option value="s.name ASC">JGLOBAL_NAME_ASC</option>
+			<option value="s.name DESC">JGLOBAL_NAME_DESC</option>
+			<option value="owner ASC">COM_DEPOT_SORT_BY_OWNER_ASC</option>
+			<option value="owner DESC">COM_DEPOT_SORT_BY_OWNER_DESC</option>
+			<option value="s.description ASC">COM_DEPOT_SORT_BY_DESCRIPTION_ASC</option>
+			<option value="s.description DESC">COM_DEPOT_SORT_BY_DESCRIPTION_DESC</option>
+			<option value="s.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="s.id DESC">JGRID_HEADING_ID_DESC</option>
+		</field>
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			class="js-select-submit-on-change"
+		/>
+	</fields>
+</form>

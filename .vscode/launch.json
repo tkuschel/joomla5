@@ -1,0 +1,102 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Listen for Xdebug",
+			"type": "php",
+			"request": "launch",
+			"port": 9003
+		},
+		{
+			"name": "Launch currently open script",
+			"type": "php",
+			"request": "launch",
+			"program": "${file}",
+			"cwd": "${fileDirname}",
+			"port": 0,
+			"runtimeArgs": [
+				"-dxdebug.start_with_request=yes"
+			],
+			"env": {
+				"XDEBUG_MODE": "debug,develop",
+				"XDEBUG_CONFIG": "client_port=${port}"
+			}
+		},
+		{
+			"name": "Launch Built-in web server",
+			"type": "php",
+			"request": "launch",
+			"runtimeArgs": [
+				"-dxdebug.mode=debug",
+				"-dxdebug.start_with_request=yes",
+				"-S",
+				"localhost:0"
+			],
+			"program": "",
+			"cwd": "${workspaceRoot}",
+			"port": 9003,
+			"serverReadyAction": {
+				"pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+				"uriFormat": "http://localhost:%s",
+				"action": "openExternally"
+			}
+		},
+		{
+			"name": "Launch J4 web server",
+			"type": "php",
+			"request": "launch",
+			"runtimeArgs": [
+				"-dxdebug.mode=debug",
+				"-dxdebug.start_with_request=yes",
+				"-S",
+				"j4.localhost:0"
+			],
+			"program": "",
+			"cwd": "${workspaceRoot}",
+			"port": 9003,
+			"serverReadyAction": {
+				"pattern": "Development Server \\(http://j4.localhost:([0-9]+)\\) started",
+				"uriFormat": "http://j4.localhost:%s",
+				"action": "openExternally"
+			}
+		},
+		{
+			"name": "Launch Built-in web server - Joomla Administrator",
+			"type": "php",
+			"request": "launch",
+			"runtimeArgs": [
+				"-dxdebug.mode=debug",
+				"-dxdebug.start_with_request=yes",
+				"-S",
+				"localhost:0"
+			],
+			"program": "",
+			"cwd": "${workspaceRoot}",
+			"port": 9003,
+			"serverReadyAction": {
+				"pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+				"uriFormat": "http://localhost:%s",
+				"action": "openExternally"
+			}
+		},
+		{
+			"name": "C/C++ Runner: Debug Session",
+			"type": "cppdbg",
+			"request": "launch",
+			"args": [],
+			"stopAtEntry": false,
+			"externalConsole": false,
+			"cwd": "/srv/http/joomla4",
+			"program": "/srv/http/joomla4/build/Debug/outDebug",
+			"MIMode": "gdb",
+			"miDebuggerPath": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		}
+	]
+}
