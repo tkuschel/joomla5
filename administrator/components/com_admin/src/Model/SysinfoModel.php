@@ -347,17 +347,16 @@ class SysinfoModel extends BaseDatabaseModel
         $output = sprintf("%03o ", $fmask, $umask);
         switch ($fmask) {
             case 0022 : // standard user and webserver mask
-                $output .= Text::_('JOK') . 'umask=<strong>' . $fmask;
+                $output = Text::_('JOK') . ' umask=<strong>' . $output . '</strong>';
                 break;
             case 0000 :
             case 0001 : // dangerous
-                $output .= Text::sprintf('COM_ADMIN_UMASK_DANGEROUS', $fmask);
+                $output = Text::sprintf('COM_ADMIN_UMASK_DANGEROUS', $fmask);
                 break;
             default : // optional mask, eg. 002
-                $output .= Text::sprintf('COM_ADMIN_UMASK_NOT_STANDARD', $fmask);
+                $output = Text::sprintf('COM_ADMIN_UMASK_NOT_STANDARD', $fmask);
         }
-
-        return $output . ' ' . Text::sprintf('COM_ADMIN_FILE_DIRECTORY_PERMISSION', $this->parsemode(0666 - $fmask), $this->parsemode(0777 - $fmask));
+        return $output . ' ' . Text::sprintf('COM_ADMIN_FILE_DIRECTORY_PERMISSION', $this->parsemode(0666 & ~$fmask), $this->parsemode(0777 & ~$fmask));
     }
 
     private function parsemode($mode) : string
