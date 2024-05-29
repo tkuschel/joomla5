@@ -1,3 +1,7 @@
 # ignore all php_error logs
 php_errors.log
 /tmp
+/administrator/cache/*
+!/administrator/cache/index.html
+/administrator/logs/*
+!/administrator/logs/index.html

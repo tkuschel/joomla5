@@ -822,7 +822,7 @@ class ApplicationModel extends FormModel implements MailerFactoryAwareInterface
         $app = Factory::getApplication();
 
         // Attempt to make the file writeable.
-        if (Path::isOwner($file) && !Path::setPermissions($file, '0664')) {
+        if (Path::isOwner($file) && !Path::setPermissions($file, '0664')) { //FIX KW4NZ
             $app->enqueueMessage(Text::_('COM_CONFIG_ERROR_CONFIGURATION_PHP_NOTWRITABLE'), 'notice');
         }
 

@@ -169,7 +169,7 @@ abstract class Folder
      *              Use Joomla\Filesystem\Folder::create() instead.
      *              The framework class throws Exceptions in case of error which you have to catch.
      */
-    public static function create($path = '', $mode = 0775)
+    public static function create($path = '', $mode = 0775) //FIX KW4NZ
     {
         $FTPOptions    = ClientHelper::getCredentials('ftp');
         static $nested = 0;

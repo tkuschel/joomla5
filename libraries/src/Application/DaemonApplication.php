@@ -769,7 +769,7 @@ abstract class DaemonApplication extends CliApplication
         }
 
         // Make sure the permissions for the process id file are accurate.
-        if (!chmod($file, 0664)) {
+        if (!chmod($file, 0664)) { //FIX KW4NZ
             Log::add('Unable to adjust permissions for the process id file: ' . $file, Log::ERROR);
 
             return false;

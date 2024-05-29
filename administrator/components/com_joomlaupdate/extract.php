@@ -793,11 +793,11 @@ class ZIPExtraction
         $this->debugMsg(sprintf('Processing last extracted entity: %s', $this->lastExtractedFilename), self::LOG_DEBUG);
 
         if (@is_file($this->lastExtractedFilename)) {
-            @chmod($this->lastExtractedFilename, 0664);
+            @chmod($this->lastExtractedFilename, 0664); //FIX KW4NZ
 
             clearFileInOPCache($this->lastExtractedFilename);
         } else {
-            @chmod($this->lastExtractedFilename, 0775);
+            @chmod($this->lastExtractedFilename, 0775); //FIX KW4NZ
         }
 
         if ($this->lastExtractedFileTimestamp > 0) {
@@ -1137,7 +1137,7 @@ class ZIPExtraction
             $dir = $this->fileHeader->file;
 
             if (!@is_dir($dir)) {
-                mkdir($dir, 0775, true);
+                mkdir($dir, 0775, true); //FIX KW4NZ
             }
 
             $this->setLastExtractedFilename(null);
@@ -1170,7 +1170,7 @@ class ZIPExtraction
 
         $lastSlash = strrpos($this->fileHeader->realFile, '/');
         $dirName   = substr($this->fileHeader->realFile, 0, $lastSlash);
-        $perms     = 0775;
+        $perms     = 0775; //FIX KW4NZ
         $ignore    = $this->isIgnoredDirectory($dirName);
 
         if (@is_dir($dirName)) {
@@ -1297,10 +1297,10 @@ class ZIPExtraction
 
         // Is this an unwritable directory?
         if (($directory != $rootDir) && !is_writeable($directory)) {
-            @chmod($directory, 0775);
+            @chmod($directory, 0775); //FIX KW4NZ
         }
 
-        @chmod($path, 0664);
+        @chmod($path, 0664); //FIX KW4NZ
     }
 
     /**

@@ -109,7 +109,7 @@ abstract class Folder
      * @since   1.0
      * @throws  FilesystemException
      */
-    public static function create($path = '', $mode = 0775)
+    public static function create($path = '', $mode = 0775) //FIX KW4NZ
     {
         static $nested = 0;
 

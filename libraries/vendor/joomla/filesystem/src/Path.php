@@ -57,7 +57,7 @@ class Path
      *
      * @since   1.0
      */
-    public static function setPermissions($path, $filemode = '0664', $foldermode = '0775')
+    public static function setPermissions($path, $filemode = '0664', $foldermode = '0775') //FIX KW4NZ
     {
         // Initialise return value
         $ret = true;
