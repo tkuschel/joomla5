@@ -1,7 +1,11 @@
 # ignore all php_error logs
 php_errors.log
 /tmp
-/administrator/cache
+# ignore all from /administrator/cache/ and subdirs of it, hint: /administrator/cache/* do not work because * does not inclide a slash
+/administrator/cache/**
+# keep the index file only:
 !/administrator/cache/index.html
-/administrator/logs
+
+/administrator/logs/**
 !/administrator/logs/index.html
+
