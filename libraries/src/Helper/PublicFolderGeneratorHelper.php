@@ -112,14 +112,14 @@ PHP;
             throw new \Exception('Unable to create the given folder, index.php already exists.');
         }
 
-        if ((!is_dir($fullDestinationPath) && !mkdir($fullDestinationPath, 0775, true))) { //FIX KW4NZ
+        if ((!is_dir($fullDestinationPath) && !mkdir($fullDestinationPath, 0755, true))) {
             throw new \Exception('Unable to create the given folder, check the permissions.');
         }
 
         // Create the required folders
         if (
-            !mkdir($fullDestinationPath . '/administrator/components/com_joomlaupdate', 0775, true) //FIX KW4NZ
-            || !mkdir($fullDestinationPath . '/api', 0775, true) //FIX KW4NZ
+            !mkdir($fullDestinationPath . '/administrator/components/com_joomlaupdate', 0755, true)
+            || !mkdir($fullDestinationPath . '/api', 0755, true)
         ) {
             throw new \Exception('Unable to create the given folder, check the permissions.');
         }

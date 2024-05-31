@@ -974,7 +974,7 @@ class TemplateModel extends FormModel
 
         $user = get_current_user();
         chown($filePath, $user);
-        Path::setPermissions($filePath, '0664'); //FIX KW4NZ
+        Path::setPermissions($filePath, '0644');
 
         // Try to make the template file writable.
         if (!is_writable($filePath)) {
