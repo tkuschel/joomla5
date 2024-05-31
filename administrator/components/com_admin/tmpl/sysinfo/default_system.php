@@ -136,6 +136,14 @@ use Joomla\CMS\Language\Text;
                     <?php echo htmlspecialchars($this->info['useragent'], ENT_COMPAT, 'UTF-8'); ?>
                 </td>
             </tr>
+            <tr>
+                <th scope="row">
+                    <?php echo Text::_('COM_ADMIN_SYSTEM_FILE_PERMISSION'); ?>
+                </th>
+                <td>
+                    <?php echo $this->info['filepermission']; ?>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
