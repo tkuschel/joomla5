@@ -2160,7 +2160,8 @@ final class UTF8
      *                                        ),
      *                                        'flags' => FILTER_FLAG_ALLOW_OCTAL,
      *                                        );
-     *                                        $var = filter_var('0755', FILTER_VALIDATE_INT, $options);
+     *                                        // FIX KW4NZ :
+     *                                        $var = filter_var('0775', FILTER_VALIDATE_INT, $options);
      *                                        // for filter that only accept flags, you can pass them directly
      *                                        $var = filter_var('oops', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
      *                                        // for filter that only accept flags, you can also pass as an array

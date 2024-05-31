@@ -64,7 +64,7 @@ function behindproxy_postinstall_action()
     $file = JPATH_CONFIGURATION . '/configuration.php';
 
     // Attempt to make the file writeable
-    if (Path::isOwner($file) && !Path::setPermissions($file, '0644')) {
+    if (Path::isOwner($file) && !Path::setPermissions($file, '0664')) { //FIX KW4NZ
         Factory::getApplication()->enqueueMessage(Text::_('COM_CONFIG_ERROR_CONFIGURATION_PHP_NOTWRITABLE'), 'error');
 
         return;

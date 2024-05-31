@@ -58,7 +58,7 @@ class FilesystemHandler extends \SessionHandler implements HandlerInterface
 
         // Create the directory if it doesn't exist
         if (!is_dir($baseDir)) {
-            if (!mkdir($baseDir, 0755)) {
+            if (!mkdir($baseDir, 0775)) { //FIX KW4NZ
                 throw new \RuntimeException(sprintf('Could not create session directory "%s"', $baseDir));
             }
         }
