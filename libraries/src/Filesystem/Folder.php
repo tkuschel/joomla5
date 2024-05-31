@@ -252,7 +252,7 @@ abstract class Folder
             }
 
             // First set umask
-            $origmask = @umask(0);
+            $origmask = @umask(0); //@TODO DANGEROUS KW4NZ, very risky when using multithreaded webserver; AND the umask never sets back to e.g. 0022 or 0002 (Linux standard)
 
             // Create the path
             if (!$ret = @mkdir($path, $mode)) {
