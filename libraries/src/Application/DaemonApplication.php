@@ -531,7 +531,7 @@ abstract class DaemonApplication extends CliApplication
         }
 
         // Clear the umask.
-        @ umask(0);
+        @ umask(0); //@TODO DANGEROUS KW4NZ, very risky when using multithreaded webserver; AND the umask never sets back to e.g. 0022 or 0002 (Linux standard)
 
         // Write out the process id file for concurrency management.
         if (!$this->writeProcessIdFile()) {
@@ -769,7 +769,7 @@ abstract class DaemonApplication extends CliApplication
         }
 
         // Make sure the permissions for the process id file are accurate.
-        if (!chmod($file, 0644)) {
+        if (!chmod($file, 0664)) { //FIX KW4NZ
             Log::add('Unable to adjust permissions for the process id file: ' . $file, Log::ERROR);
 
             return false;

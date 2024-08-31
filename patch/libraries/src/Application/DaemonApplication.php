@@ -862,4 +862,3 @@ abstract class DaemonApplication extends CliApplication
         return pcntl_wait($status, $options);
     }
 }
-

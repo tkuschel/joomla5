@@ -683,4 +683,3 @@ abstract class Folder
         return preg_replace($regex, '', $path);
     }
 }
-

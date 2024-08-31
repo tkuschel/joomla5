@@ -101,14 +101,14 @@ abstract class Folder
      * Create a folder -- and all necessary parent folders.
      *
      * @param   string   $path  A path to create from the base path.
-     * @param   integer  $mode  Directory permissions to set for folders created. 0755 by default.
+     * @param   integer  $mode  Directory permissions to set for folders created. 0775 by default.
      *
      * @return  boolean  True if successful.
      *
      * @since   1.0
      * @throws  FilesystemException
      */
-    public static function create($path = '', $mode = 0755)
+    public static function create($path = '', $mode = 0775) //FIX KW4NZ
     {
         static $nested = 0;
 
