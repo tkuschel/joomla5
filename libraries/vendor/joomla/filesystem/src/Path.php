@@ -57,7 +57,7 @@ class Path
      *
      * @since   1.0
      */
-    public static function setPermissions($path, $filemode = '0664', $foldermode = '0775') //FIX KW4NZ
+    public static function setPermissions($path, $filemode = '0644', $foldermode = '0755')
     {
         // Initialise return value
         $ret = true;
@@ -190,6 +190,10 @@ class Path
      */
     public static function clean($path, $ds = \DIRECTORY_SEPARATOR)
     {
+        if ($path === '') {
+            return '';
+        }
+
         if (!\is_string($path)) {
             throw new \InvalidArgumentException('You must specify a non-empty path to clean');
         }

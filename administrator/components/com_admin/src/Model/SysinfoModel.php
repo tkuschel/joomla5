@@ -327,47 +327,9 @@ class SysinfoModel extends BaseDatabaseModel
             'compatpluginenabled'    => PluginHelper::isEnabled('behaviour', 'compat'),
             'compatpluginparameters' => $this->getCompatPluginParameters(),
             'useragent'              => $_SERVER['HTTP_USER_AGENT'] ?? '',
-            'filepermission'         => $this->getFilePermission(),
         ];
 
         return $this->info;
-    }
-
-    /**
-     * Get a string about the maximum file permissions created from the umask of the running session
-     * 
-     * @return  string filepermission
-     * 
-     * @since 5.2 
-    */
-    private function getFilePermission() : string
-    {
-        $umask = umask();
-        $fmask = $umask & 0777;
-        $output = sprintf("%03o ", $fmask, $umask);
-        switch ($fmask) {
-            case 0022 : // standard user and webserver mask
-                $output = Text::_('JOK') . ' umask=<strong>' . $output . '</strong>';
-                break;
-            case 0000 :
-            case 0001 : // dangerous
-                $output = Text::sprintf('COM_ADMIN_UMASK_DANGEROUS', $fmask);
-                break;
-            default : // optional mask, eg. 002
-                $output = Text::sprintf('COM_ADMIN_UMASK_NOT_STANDARD', $fmask);
-        }
-        return $output . ' ' . Text::sprintf('COM_ADMIN_FILE_DIRECTORY_PERMISSION', $this->parsemode(0666 & ~$fmask), $this->parsemode(0777 & ~$fmask));
-    }
-
-    private function parsemode($mode) : string
-    {
-        $parsedmode = '';
-        for ($i = 6; $i >=0; $i -= 3) {
-            $parsedmode .= ($mode & 4<<$i) ? 'r' : '-';
-            $parsedmode .= ($mode & 2<<$i) ? 'w' : '-';
-            $parsedmode .= ($mode & 1<<$i) ? 'x' : '-';
-        }
-        return $parsedmode;
     }
 
     private function getCompatPluginParameters()

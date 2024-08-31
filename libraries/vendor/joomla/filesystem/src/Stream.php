@@ -35,7 +35,7 @@ class Stream
      * @var    integer
      * @since  1.0
      */
-    protected $filemode = 0664; //FIX KW4NZ
+    protected $filemode = 0644;
 
     /**
      * Directory Mode
@@ -43,7 +43,7 @@ class Stream
      * @var    integer
      * @since  1.0
      */
-    protected $dirmode = 0775; //FIX KW4NZ
+    protected $dirmode = 0755;
 
     /**
      * Default Chunk Size

@@ -34,8 +34,7 @@ abstract class Folder
      */
     public static function copy($src, $dest, $path = '', $force = false, $useStreams = false)
     {
-        if (\function_exists('set_time_limit'))
-        {
+        if (\function_exists('set_time_limit')) {
             set_time_limit(ini_get('max_execution_time'));
         }
 
@@ -102,14 +101,14 @@ abstract class Folder
      * Create a folder -- and all necessary parent folders.
      *
      * @param   string   $path  A path to create from the base path.
-     * @param   integer  $mode  Directory permissions to set for folders created. 0775 by default.
+     * @param   integer  $mode  Directory permissions to set for folders created. 0755 by default.
      *
      * @return  boolean  True if successful.
      *
      * @since   1.0
      * @throws  FilesystemException
      */
-    public static function create($path = '', $mode = 0775) //FIX KW4NZ
+    public static function create($path = '', $mode = 0755)
     {
         static $nested = 0;
 
@@ -211,8 +210,7 @@ abstract class Folder
      */
     public static function delete($path)
     {
-        if (\function_exists('set_time_limit'))
-        {
+        if (\function_exists('set_time_limit')) {
             set_time_limit(ini_get('max_execution_time'));
         }
 
@@ -439,8 +437,7 @@ abstract class Folder
      */
     protected static function _items($path, $filter, $recurse, $full, $exclude, $excludeFilterString, $findfiles)
     {
-        if (\function_exists('set_time_limit'))
-        {
+        if (\function_exists('set_time_limit')) {
             set_time_limit(ini_get('max_execution_time'));
         }
 
